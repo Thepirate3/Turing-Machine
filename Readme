@@ -1,0 +1,50 @@
+
+!!!
+For testing you should run on linux,only download all the files and then run the script
+ -> ./checker.sh
+
+
+	Rezolvare exercitiul 1
+
+ Pentru rezolvarea primului exercitiu am folosit o structura Tranzitie, ce a fost salvata in fisierul "tranzitie.h", si functiile "sari", "verifica_stare", "cmp", "cautare_stare" si "functie".
+
+ Structura a fost utilizata pentru implementarea unui vector de tranzitii in care am memorat toate elementele unei tranzitii(stare curenta,caractere curente,stare viitoare, caractere urmatoare si sensurile de deplasare).
+
+ Functia "sari"
+
+ Utilizata pentru a deplasa pointerul, ce indica catre linia curenta, pana la linia dorita. Primeste ca parametri pointerul catre fisier si numarul de linii ce urmeaza a fi sarite.
+
+ Functia "verifica_stare"
+
+ Primeste ca parametri un vector de stringuri, reprezentand vectorul starilor finale ,lungimea vectorului si starea curenta, si verifica daca starea curenta se afla in vectorul starilor finale.
+
+ Functia "cmp"
+
+ Functie implementata pentru a utiliza functia qsort, si compara doua elemente de tip tranzitie sortandu-le in primul rand dupa starea curenta apoi dupa caracterul aflat pe prima banda si in cele din urma dupa caracterul de pe a doua banda.
+
+ Funtia "cautare_stare"
+
+ Vectorul de tranzitii fiind deja sortat aplicam un algoritm de tipul binary search pentru o cautare mai eficienta a tranzitiei curente.
+
+ Functia "functie"
+
+ Aici au loc toate citirile de date din fisier, si apoi este utilizat o sintaxa while pentru a avansa cu capul de citire ,atat timp cat starea curenta nu este una finala.
+
+
+
+	Rezolvare exercitiul 2
+
+ Pentru implementarea celei de a doua parti am folosit urmatoarea analogie.
+Prima data vom compara caracterele 'a' si 'b' astfel:
+ - caut prima data un caracter 'a'. Daca am gasit pun '1' echivalentul unui 'a' vizitat, apoi trec in alta stare in care ma repozitionez la finalul randului in sensul in care am cautat caracterul 'a'. Pentru orice alt caracter intalnit pe banda, il inlocuiesc tot cu acelasi. Daca dau de caracterul '#' inseamna ca nu mai am caracterul 'a' pe banda si daca cumva am avut caracterul 'b' atunci inlocuiesc caracterul '2' cu 'b'.
+
+- dupa resetare caut 'b' la fel ca in cazul lui 'a' si daca voi da de '#' inseamna ca nu am mai gasit 'b' deci trec intr-o stare in care resetez toate caracterele 'a', ajungand astfel si la finalul randului.
+
+In etapa urmatoare voi face comparatia intre 'a'/'b', in functie de cine a fost dominant, si caracterul 'c'.
+
+Se procedeaza la fel ca in cazul compararii caracterelor 'a' si 'b', si vom ajunge sa acutalizam caracterul dominant prin inlocuirea cifrei corespunzatoare literi cu litera respectiva. De mentionat este faptul ca pentru 'c' cifra corespunzatoare este 3 iar pentru d este 4. 
+
+La final , dupa compararea lui 'd' cu ultimul caracterul dominant ,in functie de caracterul ce ramane se va trece intr-o penultima stare care va sterge totul de pe banda si va lasa doar caracterul dominant trecand apoi in starea finala S44.
+
+
+
